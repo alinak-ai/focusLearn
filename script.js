@@ -1,8 +1,10 @@
 console.log("SCRIPT LOADED");
 
-function generateProblem() {
-    const a = Math.floor(Math.random() * 10);
-    const b = Math.floor(Math.random() * 10);
+
+
+  function generateProblem() {
+    const a = Math.floor(Math.random() * difficulty);
+    const b = Math.floor(Math.random() * difficulty);
   
     return {
       question: `${a} + ${b}`,
@@ -17,12 +19,22 @@ function generateProblem() {
 //console.log(problem.question);
 //console.log(problem.answer);
 
-let problemCount = 0;            
+let problemCount = 0;    
+let difficulty = 10; // max number used in problems        
 const maxProblems = 5;           
 let currentProblem = generateProblem();
 
 // Show a problem on the page
 function showProblem() {
+    updateDifficultyDisplay();
+    updateProgress();
+
+    const difficultyEl = document.getElementById("difficulty");
+  difficultyEl.textContent = "Difficulty max: " + difficulty;
+
+  document.getElementById("progress").textContent =
+    `Problem ${problemCount + 1} of ${maxProblems}`;
+
   document.getElementById("problem").textContent = currentProblem.question;
   document.getElementById("answer").value = "";
   document.getElementById("feedback").textContent = "";
@@ -47,13 +59,16 @@ document.getElementById("answer").addEventListener("keydown", function(event) {
         document.getElementById("problem").textContent = "🎉 Victory! You completed the session!";
         document.getElementById("feedback").textContent = "";
 
-        // Restart session after 1.5 seconds
+        difficulty = Math.min(difficulty + 5, 30); // cap difficulty
+        updateDifficultyDisplay();
+        // Restart session after 2 seconds
         setTimeout(() => {
           problemCount = 0; // reset counter
           currentProblem = generateProblem();
           showProblem();
-        }, 1500);
+        }, 2000);
 
+        
       } else {
         // Next problem after 0.5s
         setTimeout(() => {
@@ -68,3 +83,13 @@ document.getElementById("answer").addEventListener("keydown", function(event) {
     }
   }
 });
+
+function updateProgress() {
+    document.getElementById("progress").textContent =
+      `Problem ${problemCount + 1} of ${maxProblems}`;
+  }
+
+  function updateDifficultyDisplay() {
+    document.getElementById("difficulty").textContent =
+      `Difficulty max: ${difficulty}`;
+  }
