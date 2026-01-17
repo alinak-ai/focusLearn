@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Headline */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Difficulty and progress */
+#difficulty,
+#progress {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Problem container */
+#problem-container {
+    background: #ffffff;
+    padding: 30px 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Problem */
+#problem {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Input */
+#answer {
+    width: 60%;
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #ccc;
+    outline: none;
+    transition: border 0.2s;
+}
+
+#answer:focus {
+    border-color: #007bff;
+}
+
+/* Feedback */
+#feedback {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    min-height: 1.2em; /* prevents layout shift */
+    color: #007bff;
+}
+
+/* Operator buttons */
+#operator-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+#operator-buttons button {
+    font-size: 1.5rem;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#operator-buttons button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#operator-buttons button.selected {
+    background-color: #28a745;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    #problem-container {
+        padding: 20px 10px;
+    }
+    #answer {
+        width: 80%;
+    }
+    #operator-buttons button {
+        font-size: 1.2rem;
+        padding: 10px 15px;
+    }
+}

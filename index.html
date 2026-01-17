@@ -1,23 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>FocusLearn</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <h1>FocusLearn</h1>
-  <p id="difficulty"></p>
-  <p id="progress"></p>
-  <div id="problem"></div>
+  <p id="difficulty">Difficulty max: 10</p>
+  <p id="progress">Problem 1 of 5</p>
 
-  <input id="answer" type="number" />
-  <!--<button id="submit">Submit</button>-->
+  <div id="problem-container">
+    <div id="problem"></div>
+    <input type="number" id="answer" placeholder="Enter answer" />
+    <div id="feedback"></div>
+  </div>
 
-<p id="feedback"></p>
-</body>
-</html> 
+  <div id="operator-buttons">
+    <button data-op="+" id="add-btn">+</button>
+    <button data-op="-" id="sub-btn">-</button>
+    <button data-op="*" id="mult-btn">*</button>
+    <button data-op="/" id="dev-btn">÷</button>
+  </div>
 
-<!-- This line connects JavaScript -->
-<script src="script.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
